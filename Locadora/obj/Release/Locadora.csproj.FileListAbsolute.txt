@@ -1,0 +1,4 @@
+C:\Users\robgo\OneDrive\Documentos\Estudos\Pri\Locadora\obj\Release\Locadora.frmCadastroUsuario.resources
+C:\Users\robgo\OneDrive\Documentos\Estudos\Pri\Locadora\obj\Release\Locadora.frmInicial.resources
+C:\Users\robgo\OneDrive\Documentos\Estudos\Pri\Locadora\obj\Release\Locadora.frmLogin.resources
+C:\Users\robgo\OneDrive\Documentos\Estudos\Pri\Locadora\obj\Release\Locadora.csproj.GenerateResource.cache
