@@ -1,0 +1,63 @@
+-- ************************************** "dbLocadora"
+
+CREATE DATABASE dbLocadora
+
+-- ************************************** "tbUsuario"
+
+CREATE TABLE "tbusuario"
+(
+ "idUsuario" int NOT NULL GENERATED ALWAYS AS IDENTITY,
+ "nome"      varchar(50) NOT NULL,
+ "cpf"       varchar(50) NOT NULL,
+ "telefone"  varchar(50) NOT NULL,
+ "rua"       varchar(50) NOT NULL,
+ "numero"    varchar(50) NOT NULL,
+ "cidade"    varchar(50) NOT NULL,
+ "estado"    varchar(50) NOT NULL,
+ "senha"     varchar(30) NOT NULL,
+ CONSTRAINT "PK_dbCliente" PRIMARY KEY ( "idUsuario" )
+);
+
+-- ************************************** "tbVeiculos"
+
+CREATE TABLE "tbveiculos"
+(
+ "idveiculo"     int NOT NULL GENERATED ALWAYS AS IDENTITY (
+ start 1
+ ),
+ "placa"         varchar(50) NOT NULL,
+ "modelo"        varchar(50) NOT NULL,
+ "marca"         varchar(50) NOT NULL,
+ "precolocacao"  double precision NOT NULL,
+ "statusveiculo" varchar(20) NOT NULL,
+ CONSTRAINT "PK_dbVeiculos" PRIMARY KEY ( "idVeiculo" )
+);
+
+-- ************************************** "tbLocacao"
+
+CREATE TABLE "tblocacao"
+(
+ "idlocacao"  int NOT NULL GENERATED ALWAYS AS IDENTITY (
+ start 100
+ ),
+ "idusuario"  int NOT NULL,
+ "idveiculo"  int NOT NULL,
+ "datainicio" varchar(20) NOT NULL,
+ "datafim"    varchar(20) NOT NULL,
+ "valortotal" double precision NOT NULL,
+ CONSTRAINT "PK_dcLocacao" PRIMARY KEY ( "idLocacao" ),
+ CONSTRAINT "FK_59" FOREIGN KEY ( "idUsuario" ) REFERENCES "tbusuario" ( "idUsuario" ),
+ CONSTRAINT "FK_62" FOREIGN KEY ( "idveiculo" ) REFERENCES "tbveiculos" ( "idveiculo" )
+);
+
+CREATE INDEX "fkIdx_59" ON "tblocacao"
+(
+ "idUsuario"
+);
+
+CREATE INDEX "fkIdx_62" ON "tblocacao"
+(
+ "idveiculo"
+);
+
+
